@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌦 Advanced Weather Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container glass">
+    <h1>🌍 Weather Dashboard</h1>
+
+    <div class="search-box">
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getWeather()">🔍 Search</button>
+    </div>
+
+    <div id="result" class="hidden">
+        <div class="weather-info glass">
+            <h2 id="city-name"></h2>
+            <p><b>🌤 Condition:</b> <span id="description"></span></p>
+            <p><b>🌡 Temperature:</b> <span id="temp"></span>°C
+               (Feels like: <span id="feels-like"></span>°C)</p>
+            <p><b>💧 Humidity:</b> <span id="humidity"></span>%</p>
+            <p><b>📊 Pressure:</b> <span id="pressure"></span> hPa</p>
+            <p><b>🌧 Rain Prediction:</b> <span id="rain"></span></p>
+        </div>
+
+        <div class="charts">
+            <div class="chart-card glass">
+                <h3>🌡 Temperature Forecast</h3>
+                <canvas id="tempChart"></canvas>
+            </div>
+            <div class="chart-card glass">
+                <h3>💧 Humidity Forecast</h3>
+                <canvas id="humChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
